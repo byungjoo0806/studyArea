@@ -1,0 +1,569 @@
+.body{
+    position: relative;
+    height: max-content;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.fix1{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 12px;
+    background-color: white;
+    z-index: 1;
+    box-sizing: border-box;
+    align-items: center;
+    margin-top: -9px;
+    
+}
+
+.fix1 div button{
+    background-color: white;
+    border: 0;
+    border-radius: 3px;
+
+}
+
+.button1{
+    width: 278px;
+    text-align: center;
+    align-items: center;
+       
+}
+
+.button1 button{
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+
+.button2 button{
+    position: fixed;
+    right: 50px;
+    top: 8px;
+    align-items: center;
+    width: 64px;
+    height: 28px;
+    border: none;
+
+}
+
+.button3 button{
+    width: 44px;
+    height: 28px;
+
+}
+
+.button1 button:hover{
+    background: rgba(55, 53, 47, 0.08);
+}
+
+.button2 button:hover{
+    background: rgba(55, 53, 47, 0.08);
+
+} 
+
+.button3 button:hover{
+    background: rgba(55, 53, 47, 0.08);
+    
+}
+
+
+#icon5{
+    display: block;    
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background : url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x:  8.47457627118644%;
+    background-position-y : 33.89830508474576%;
+    background-size: 6000% 6000%;
+   
+}
+
+#icon6{
+    display: block;
+    position: fixed;
+    right: 88px;
+    top: 17px;
+    content: "";
+    background-image: url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-search-input.png);
+    width: 20px;
+    height: 20px;
+    background-size: 12px;
+    background-repeat: no-repeat;
+   
+}
+
+.main{
+    max-width: 900px;
+    height: max-content;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: calc(96px + env(safe-area-inset-left));
+    padding-right: calc(96px + env(safe-area-inset-right));
+    box-sizing: border-box;
+
+    margin: auto;
+}
+
+.tap{
+    width: 100%;
+    height: 312px;
+    font-size: 40px;
+
+}
+
+.tap span{
+    display: block;    
+    width: 107.1px;
+    height: 103.5px;
+    background-repeat: no-repeat;
+    background : url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x:  8.47457627118644%;
+    background-position-y : 33.89830508474576%;
+    background-size: 6000% 6000%;
+    margin-top: 80px;
+}
+
+.tap1{
+    max-width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(55, 53, 47);
+    padding-top: 5px;
+    padding-bottom: var(--page-content-padding-bottom);
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box ;
+}
+
+.icon1{
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x: 49.152542372881356%;
+    background-position-y: 15.254237288135593%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+    
+}
+
+
+
+h2{
+    background-color: rgba(224, 164, 73, 0.3);
+    width: 100%;
+    padding: 3px 2px;
+    font-weight: 600;
+    font-size: 1.875em;
+    line-height: 1.3;
+    margin: 0;
+}
+
+h3{
+    background-color: antiquewhite;
+    max-width: 100%;
+    width: 100%;
+    padding: 3px 2px;
+    font-weight: 600;
+    font-size: 1.875em;
+    line-height: 1.3;
+    margin-top: 20px ;
+    font-size: 1.5em;
+    line-height: 1.3;
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    visibility: visible;
+    border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    margin-top: -15px;
+}
+
+.title4{
+    background-color: rgba(244, 240, 247, 0.8);
+    max-width: 100%;
+    width: 100%;
+    padding: 3px 2px;
+    font-weight: 600;
+    font-size: 1.875em;
+    line-height: 1.3;
+    margin: 0;
+    font-size: 1.25em;
+    line-height: 1.3;
+    margin-top: 20px;
+
+}
+
+div img{
+    
+    display: block;
+    object-fit: cover;
+    border-radius: 1px;
+    width: 100%;
+    height: auto;
+    pointer-events: auto;
+    border-radius: 0px;
+    margin-top: 10px;
+
+}
+
+p{
+    color: rgba(55, 53, 47, 0.6);
+    padding: 6px 0 6px 2px;
+    font-size: 14px;
+    margin-top: -3px;
+    
+}
+
+
+.p1 img{
+    max-width: 512px;
+    height: auto;
+
+}
+
+.p2 img{
+    max-width: 559px;
+    max-width: auto;
+}
+
+.text-page{
+    width: 100%;
+    
+    display: block;
+    
+}
+
+.text-page h4{
+    max-width: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 3px 2px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    font-size: 1.25em;
+    line-height: 1.3;
+    margin-top: 20px;
+}
+
+.text-page li{
+    font-size: 16px;
+    max-width: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 3px 2px;
+    text-align: left;
+}
+
+.boxfont{
+    line-height: normal;
+    background: rgba(135,131,120,0.15);
+    color: #EB5757;
+    border-radius: 3px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+}
+
+.boxfont2{
+    background: rgba(244, 240, 247, 0.8);
+    font-weight: 600;
+}
+
+.boxfont3{
+    background: rgba(244, 240, 247, 0.8);
+}
+
+.box{
+    display: flex;
+    background-color: rgb(241, 241, 239);
+    color: inherit;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    padding: 16px 16px 16px 12px;
+    
+}
+
+#block{
+    display: inline-block;
+    width: 24px;
+    
+}
+
+#icon2{
+    width: 21.59px;
+    height: 21.59px;
+    background: url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x: 47.45762711864407%;
+    background-position-y: 25.423728813559322%;
+    background-size: 6000% 6000%;
+}
+
+.link{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+
+.sub-title{
+    display: flex;
+    text-align: left;
+    border: 1px solid rgba(55,53,47,.16);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-radius: 3px;
+    position: relative;
+    
+}
+
+.sub-title:hover{
+    background: rgba(55, 53, 47, 0.08);
+}
+
+.text-page2{
+    flex: 4 1 180px;
+    padding: 12px 14px 14px;
+    overflow: hidden;
+    text-align: left;
+
+}
+
+.hidden-page{
+    width: 100%;
+    max-width: 100%;
+}
+
+.sub1{
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 24px;
+    margin-bottom: 2px;
+    
+}
+
+.sub2{
+    font-size: 12px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+    color: gray;
+}
+
+.sub3{
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-img{
+    flex: 1 1 180px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.text-img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+
+    overflow: hidden;
+    
+}
+
+.last-page{
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    max-width: calc( 100vw - 192px );
+    font-size: 1.2em;
+    padding: 3px 2px;
+    display: flex;
+    background: none;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.last-page .last-title{
+    width: 100%;
+    border-left: 3px solid currentcolor;
+    padding-left: 14px;
+    padding-right: 14px;
+    color: inherit;
+}
+
+
+.last-page span{
+    background-color: rgb(253, 235, 236);
+}
+
+.last-page img{
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.content-div{
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: 50px;
+    flex-wrap: wrap;
+   
+}
+
+.content {
+    width: 100%;
+    display: inline-flex;
+    font-weight: 500;
+    line-height: 1.3;
+    padding: 3px 0px 3px 2px;
+    font-size: 16px;
+}
+
+#icon3{
+    width: 22px;
+    height: 22px;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x: 94.91525423728814%;
+    background-position-y: 96.61016949152543%;
+    background-size: 6000% 6000%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none;
+
+}
+
+.content #icon4{
+    display: block;
+    width: 22px;
+    height: 22px;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/images/emoji-cd0caf391218ef7e695cd8315d235038.png);
+    background-position-x: 8.47457627118644%;
+    background-position-y: 33.89830508474576%;
+    background-size: 6000% 6000%;
+    
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-text{
+    border-bottom: 1px solid rgba(55, 53, 47, 0.16);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-page{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 30px;
+    justify-content: flex-end;
+}
+
+#b1{
+    text-align: end;
+    background-color: white;
+    color: inherit;
+    font-size: 12px;
+    letter-spacing: -.33px;
+    white-space: pre-wrap;
+}
+
+#oopy{
+    width: 24px;
+    height: 18px;
+    background-size: cover;
+}
+
+.fix-bottom{
+    position: relative;
+    width: 100%;
+    width: max-content;
+}
+
+.fix-bottom a{
+    position: fixed;
+    width: 88%;
+    height: 48px;
+    bottom: 16px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    display: flex;
+    align-self: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 88%;
+    max-width: var(--content-max-width);
+    height: 48px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(5, 99, 140);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+
+}
+
+.link-text{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+}
+
+.link{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: 1px solid;
+    box-sizing: border-box;
+}

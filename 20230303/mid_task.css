@@ -1,0 +1,73 @@
+.block{
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    border: 1px solid;
+}
+
+.box{
+    width: 300px;
+    height: 200px;
+    border: 1px solid;
+    margin: 20px;
+    border-radius: 20px;
+
+    position: relative;
+
+    display: block;
+    justify-content: center;
+}
+
+.thumbnail{
+    overflow: hidden;
+}
+
+.bottom{
+    width: 300px;
+    height: 100px;
+    border: 1px solid;
+
+    text-align: center;
+
+    display: inline-flex;
+
+    position: relative;
+}
+
+.iconbox{
+    width: 50px;
+    height: 100px;
+}
+
+.icon{
+    position: relative;
+
+    top: 2px;
+    left: 2px;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 50px;
+
+    background-image: url("https://yt3.ggpht.com/Gbbyyjqqzf9v97-FjNM1jJI1W67Ve7P-8YMNS5uSk4GgkfAwRVq3eCxZOLIsJ3JyL_hVjg0-kQ=s68-c-k-c0x00ffffff-no-rj");
+    background-size: contain;
+}
+
+.word{
+    margin-left: 50px;
+
+}
+
+.title{
+
+}
+
+.channel{
+
+}
+
+.detail{
+    text-align: end;
+}

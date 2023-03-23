@@ -1,0 +1,263 @@
+.title{
+    font-size: 21px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.item-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.detail{
+    display: inline-flex;
+    width: 1000px;
+    margin-right: 0;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    background-image: url("https://yt3.ggpht.com/QMAQ5xNx_WSdrN8Bne6Sl2JWaus0-C7xrra_pODxlgE-1EFXFCstnuPr-9e-qrq0xQI0bwYpvg=s88-c-k-c0x00ffffff-no-rj");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 15px;
+}
+
+.info{
+    width: 180px;
+}
+
+.channel{
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-weight: bolder;
+}
+
+.subscribers{
+    display: inline-flex;
+    margin-left: 12px;
+    color: gray;
+    font-size: 12px;
+    margin-top: 0;
+}
+
+.subscribe{
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 50px;
+    margin-left: 30px;
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+}
+
+.subscribe:hover{
+    opacity: 0.8;
+}
+
+.rest{
+    margin-left: 220px;
+    display: inline-flex;
+    margin-right: 0;
+    margin-top: 10px;
+}
+
+.like{
+    width: 80px;
+    height: 30px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.like:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.dislike{
+    width: 40px;
+    height: 30px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    margin-left: 0;
+    margin-top: 15px;
+    position: relative;
+}
+
+.dislike:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.short-line{
+    width: 40px;
+    height: 15px;
+    border-left: 1px solid gray;
+    position: absolute;
+}
+
+.up-img{
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+}
+
+.down-img{
+    width:15px;
+    height: 15px;
+    margin: 10px;
+    padding-top: 3px;
+}
+
+.download{
+    width: 15px;
+    height: 15px;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.thumbs-up{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbs-down{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.share{
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.share:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.save{
+    width: 130px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.save:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.arrow{
+    width: 15px;
+    height: 15px;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.more{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: rgb(233, 233, 233);
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.more:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.explanation{
+    width: 1000px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: rgb(233, 233, 233);
+    padding-top: 5px;
+    padding-left: 5px;
+    display: inline-flex;
+}
+
+.explanation:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+.letter{
+    font-weight: bold;
+    color: black;
+}
+
+.tagged{
+    width: 1000px;
+    height: 40px;
+}
+
+.number{
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.hashtag{
+    display: inline-flex;
+    width: 500px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: gray;
+    margin-top: 13px;
+}
+
+.word{
+    display: block;
+    margin-left: 10px;
+    margin-top: 0;
+}
+
+.show{
+    margin-left: 14px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}

@@ -1,0 +1,12 @@
+.button-div{
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+    background-color: aqua;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* 손가락 모양 커서 */
+}

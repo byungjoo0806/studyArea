@@ -1,0 +1,344 @@
+.big-box{
+    
+}
+
+.tab-menu{
+    align-items: center;
+    margin: 0;
+    text-align: center;
+}
+
+.tab-menu > input{
+    display: none;
+}
+
+.tab-menu > input + label{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border-bottom: 1px solid purple;
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.megabox-logo{
+    display: flex;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.megabox-logo img{
+    width: 300px;
+    height: 100px;
+    margin: auto;
+}
+
+.allmovies{
+    font-size: 30px;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+
+.top-bar{
+    width: 1024px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.how-many{
+    padding: 25px;
+}
+
+.movie-number{
+    width: 230px;
+}
+
+.search-box{
+    margin-left: 550px;
+    margin-right: 35px;
+    position: relative;
+}
+
+.search-box::before{
+    content: "";
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/btn/btn-search-input.png");
+    width: 12px;
+    height: 12px;
+    background-size: 12px;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 130px;
+}
+
+.box{
+    width: 1024px;
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: none;
+}
+
+input:checked + label{
+    border-top: 1px solid purple;
+    border-left: 1px solid purple;
+    border-right: 1px solid purple;
+    border-bottom: 1px solid lightgray;
+}
+
+input[class="boxoffice"]:checked ~ .item1{
+    width: 1024px;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+input[class="comingsoon"]:checked ~ .item2{
+    width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+input[class="special"]:checked ~ .item3{
+    width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+input[class="filmsociety"]:checked ~ .item4{
+    width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+input[class="classic-society"]:checked ~ .item5{
+    width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.poster{
+    position: relative;
+}
+
+.poster img{
+    width: 230px;
+    height: 331px;
+}
+
+.poster:hover .summary-rating{
+    display: block;
+}
+
+.summary-rating{
+    display: none;
+
+    width: 230px;
+    height: 331px;
+    text-align: left;
+
+    position: absolute;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.summary-rating p{
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 10px;
+    text-align: left;
+
+    width: 230px;
+    height: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.movie{
+    width: 230px;
+    height: 450px;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+.age12{
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png");
+    width: 23px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.age-all{
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png");
+    width: 23px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.age15{
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png");
+    width: 23px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.age18{
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png");
+    width: 23px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title{
+    width: 230px;
+    height: 27px;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.word-title{
+    width: 200px;
+    height: 27px;
+    padding-top: 5px;
+    padding-left: 8px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail{
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+.booking{
+    padding-right: 10px;
+}
+
+.date{
+    padding-left: 10px;
+}
+
+.mid-line{
+    position: absolute;
+    border-left: 1px solid gray;
+    width: 10px;
+    height: 10px;
+    margin-left: 97px;
+}
+
+.mid-line2{
+    position: absolute;
+    border-left: 1px solid gray;
+    width: 10px;
+    height: 10px;
+    margin-left: 90px;
+}
+
+.mid-line3{
+    position: absolute;
+    border-left: 1px solid gray;
+    width: 10px;
+    height: 10px;
+    margin-left: 79px;
+}
+
+.buttons{
+    display: inline-flex;
+    margin-top: 10px;
+}
+
+.like{
+    width: 72px;
+    height: 36px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-right: 2px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-icon{
+    width: 17px;
+    height: 15px;
+    background-image: url("https://img.megabox.co.kr/static/pc/images/common/ico/ico-heart-toggle-gray.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 9px;
+}
+
+.ticket{
+    width: 72px;
+    height: 36px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #503396;
+    color: white;
+}
+
+.ticket-soon{
+    width: 72px;
+    height: 36px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    color: white;
+}
+
+.dolby-cinema{
+    width: 72px;
+    height: 36px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.dolby-cinema img{
+    width: 50px;
+    height: 25px;
+    margin-top: 5px;
+}

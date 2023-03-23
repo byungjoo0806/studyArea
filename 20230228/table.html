@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<body>
+    <!-- 표를 작성하는데 제일 부모 태그 -->
+    <!-- 
+        ul 태그로 예를 들어
+        <ul> li 태그를 감싸고 있는 ul 태그가 li 태그의 부모이다
+            <li></li> li 태그는 ul 태그의 자식이다
+        </ul>
+    -->
+    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+        <!-- caption 태그로 테이블의 이름을 작성해준다 -->
+        <caption>
+            테이블 이름
+        </caption>
+        <!-- column의 줄임말; 열/세로줄 -->
+        <col style="width: 50px;">
+        <col style="width: 100px;">
+        <col style="width: 200px;">
+        <tr>
+            <!-- 테이블 제일 위의 이름 : 테이블 헤더 -->
+            <!-- border 테두리를 바꿔줄수 있는 속성; 선의 굵기; 선의 타입; 테두리의 색 -->
+            <th style="border: 1px solid black;">번호</th>
+            <th style="border: 1px solid black;">이름</th>
+            <th style="border: 1px solid black;">나이</th>
+            <th style="border: 1px solid black;">성별</th>
+            <th style="border: 1px solid black;">국적</th>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">1</th>
+            <td style="border: 1px solid black;">이순현</td>
+            <td style="border: 1px solid black;">비밀</td>
+            <td style="border: 1px solid black;">남자</td>
+            <td style="border: 1px solid black;">한국 어딘가</td>
+        </tr>
+        <!-- rowspan 속성은 세로로 병합을 시켜둔다 -->
+        <tr>
+            <th style="border: 1px solid black;">2</th>
+            <td style="border: 1px solid black;">이순현</td>
+            <td style="border: 1px solid black;">비밀</td>
+            <td style="border: 1px solid black;">남자</td>
+            <!-- background-color 태그의 배경색을 지정해준다 -->
+            <td rowspan="2" style="border: 1px solid black; background-color: ivory;">한국 어딘가</td>
+        </tr>
+        <!-- colspan 속성은 가로로 병합을 시켜준다 -->
+        <tr>
+            <th style="border: 1px solid black">3</th>
+            <td colspan="2" style="border: 1px solid black">이순현</td>
+            <!-- text-align: center 속성을 주면 텍스트가 중앙 정렬이 된다 -->
+            <td style="border: 1px solid black; text-align: center;">비밀</td>
+        </tr>
+    </table>
+</body>
+</html>

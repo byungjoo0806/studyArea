@@ -1,0 +1,38 @@
+
+.background{
+    width: 200px;
+    height: 200px;
+
+    background-color: maroon;
+    /* 배경 색상 추가 */
+
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg");
+    /* 배경 이미지 추가 */
+
+    background-size: contain;
+    /* 배경 이미지의 크기 지정; 이미지가 다 보일수 있게 크기를 맞춰줌(비율 맞춤) */
+
+    background-size: cover;
+    /* 배경 이미지의 크기 지정; 최대크기 (비율 맞춤); 이미지가 짤릴수있다. 이미지와 비율을 맞춰줘야함 */
+
+    background-size: 100px 100px;
+    /* 이미지의 사이즈 지정; 너비 높이 */
+
+    background-position: 10px 10px;
+    /* 배경 이미지의 위치 지정; x축 y축 */
+
+    background-position: center;
+    /* 배경 이미지의 위치를 가운데로 맞춤 */
+
+    background-repeat: no-repeat;
+    /* 배경 이미지 반복 여부; 반복하지 않는다. */
+
+    background-repeat: repeat;
+    /* 배경 이미지 반복 여부; 기본값은 반복 */
+
+    background-repeat: repeat-x;
+    /* 배경 이미지를 x축으로만 반복한다 */
+
+    background-repeat: repeat-y;
+    /* 배경 이미지를 y축으로만 반복한다 */
+}

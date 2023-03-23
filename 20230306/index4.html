@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style4.css">
+    <style>
+        /* + : 태그 밑에 있는 요소 중 인접한 요소 */
+        p+a{
+            color: red;
+        }
+        /* ~ : 태그 밑에 있는 요소 */
+        p~a{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <div>asdf</div>
+    <a href="">나는 레드</a>
+    <div class="tab-menu">
+        <!-- name : 하나만 체크되게끔 같은 이름주기 -->
+        <!-- checked : input에 체크 속성을 줄때 -->
+        <!-- tab01 id를 가지고있는 input label for 속성에 tab01 -->
+        <!-- for 속성으로 연결된 label을 클릭하면 id로 for에 연결된 체크박스가 클릭이 된다. -->
+        <input class="tab01" type="radio" id="tab01" name="tabmenu" checked>
+        <label for="tab01">탭 1</label>
+        <input class="tab02" type="radio" id="tab02" name="tabmenu">
+        <label for="tab02">탭 2</label>
+        <input class="tab03" type="radio" id="tab03" name="tabmenu">
+        <label for="tab03">탭 3</label>
+
+        <!-- box클래스도 가지고있고 item1 클래스도 가지고있다; 두개의 클래스를 가지고있다. -->
+        <div class="box item1">1번 박스</div>
+        <!-- box클래스도 가지고있고 item2 클래스도 가지고있다; 두개의 클래스를 가지고있다. -->
+        <div class="box item2">2번 박스</div>
+        <!-- box클래스도 가지고있고 item3 클래스도 가지고있다; 두개의 클래스를 가지고있다. -->
+        <div class="box item3">3번 박스</div>
+
+        <div class="textbox">
+            <input type="text">
+        </div>
+    </div>
+</body>
+</html>

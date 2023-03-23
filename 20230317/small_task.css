@@ -1,0 +1,37 @@
+.page{
+    width: 100%;
+}
+
+/* .table{
+    width: 920px;
+    height: 500px;
+    border: 1px solid black;
+    list-style-type: none;
+}
+
+.heading{
+    width: 800px;
+    height: 50px;
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.addButton{
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    box-shadow: 2px 2px 2px;
+
+    background-color: lightgray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}

@@ -1,0 +1,29 @@
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    justify-content: center;
+}
+
+.block{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.picture{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(128,128,128,0.5);
+    margin-bottom: 50px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}

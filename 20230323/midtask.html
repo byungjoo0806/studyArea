@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            width: 800px;
+            height: 50px;
+        }
+
+        li > div{
+            /* width: 200px; */
+            /* height: 50px; */
+            /* border: 1px solid; */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul{
+            padding: 0;
+        }
+
+        .smallInputBox{
+            width: 35px;
+        }
+
+        .largeInputBox{
+            width: 392px;
+            height: 80px;
+        }
+
+        .mediumInputBox{
+            width: 150px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <label for="">요일</label>
+    <input type="text" class="smallInputBox">
+    <!-- <textarea name="" id="" cols="1" rows="1" class="smallInputBox"></textarea> -->
+    <label for="">시간</label>
+    <input type="text" class="smallInputBox">
+    <label for="">내용</label>
+    <input type="text" class="largeInputBox">
+    <!-- <textarea name="" id="" cols="30" rows="5" class="largeInputBox"></textarea> -->
+    <label for="">장소</label>
+    <input type="text" class="mediumInputBox">
+
+    <button class="clickBtn">추가</button>
+
+    <div class="bigDiv">
+
+    </div>
+
+    <button class="deleteBtn">제거</button>
+</body>
+<script>
+    let jason = '{"key" : "value"}'
+    let clickBtn = document.querySelector(".clickBtn");
+    let bigDiv = document.querySelector(".bigDiv");
+    let deleteBtn = document.querySelector(".deleteBtn");
+    // window.localStorage.clear();
+    function addLine(){
+        let inputs = document.querySelectorAll("input");
+        let value = window.localStorage.getItem("toDoList");
+        // window.localStorage.clear();
+        if(window.localStorage.length == 0){
+            // window.localStorage.clear();
+            window.localStorage.setItem(`toDoList`, `{"day" : "${inputs[0].value}", "time" : "${inputs[1].value}", "content" : "${inputs[2].value}", "place" : "${inputs[3].value}"}`);
+        }
+        else{
+            // window.localStorage.clear();
+            window.localStorage.setItem("toDoList", value + "|" + `{"day" : "${inputs[0].value}", "time" : "${inputs[1].value}", "content" : "${inputs[2].value}", "place" : "${inputs[3].value}"}`)
+        }
+        render();
+    }
+    clickBtn.addEventListener("click",addLine);
+
+    function render(){
+        let jason = window.localStorage.getItem("toDoList");
+        jason = jason.split("|");
+        bigDiv.innerHTML = "";
+        
+        listTable = document.createElement("ul");
+        listTable.classList.add("bigList");
+        listItem = document.createElement("li");
+        divDay = document.createElement("div");
+        divTime = document.createElement("div");
+        divContent = document.createElement("div");
+        divPlace = document.createElement("div");
+
+        divDay.innerHTML = "요일";
+        divDay.class = "idk";
+        divDay.style.border = "1px solid";
+        divDay.style.backgroundColor = "lightblue";
+        divDay.style.width = "82px";
+        divDay.style.height = "50px";
+
+        divTime.innerHTML = "시간";
+        divTime.style.borderTop = "1px solid";
+        divTime.style.borderRight = "1px solid";
+        divTime.style.borderBottom = "1px solid";
+        divTime.style.backgroundColor = "lightblue";
+        divTime.style.width = "82px";
+        divTime.style.height = "50px";
+
+        divContent.innerHTML = "내용";
+        divContent.style.borderTop = "1px solid";
+        divContent.style.borderRight = "1px solid";
+        divContent.style.borderBottom = "1px solid";
+        divContent.style.backgroundColor = "lightblue";
+        divContent.style.width = "450px";
+        divContent.style.height = "50px";
+
+        divPlace.innerHTML = "장소";
+        divPlace.style.borderTop = "1px Solid";
+        divPlace.style.borderRight = "1px Solid";
+        divPlace.style.borderBottom = "1px Solid";
+        divPlace.style.backgroundColor = "lightblue";
+        divPlace.style.width = "200px";
+        divPlace.style.height = "50px";
+
+        listItem.style.display = "flex";
+        listItem.append(divDay,divTime,divContent,divPlace);
+        listTable.append(listItem);
+
+        jason.forEach(function(i){
+            listItem = document.createElement("li");
+            divDay = document.createElement("div");
+            divTime = document.createElement("div");
+            divContent = document.createElement("div");
+            divPlace = document.createElement("div");
+
+            divDay.innerHTML = JSON.parse(i).day;
+            divDay.style.borderLeft = "1px solid";
+            divDay.style.borderBottom = "1px solid";
+            divDay.style.borderRight = "1px solid";
+            divDay.style.width = "82px";
+            divDay.style.height = "50px";
+
+            divTime.innerHTML = JSON.parse(i).time;
+            divTime.style.borderBottom = "1px solid";
+            divTime.style.borderRight = "1px solid";
+            divTime.style.width = "82px";
+            divTime.style.height = "50px";
+
+            divContent.innerHTML = JSON.parse(i).content;
+            divContent.style.borderBottom = "1px solid";
+            divContent.style.borderRight = "1px solid";
+            divContent.style.width = "450px";
+            divContent.style.height = "50px";
+
+            divPlace.innerHTML = JSON.parse(i).place;
+            divPlace.style.borderBottom = "1px solid";
+            divPlace.style.borderRight = "1px solid";
+            divPlace.style.width = "200px";
+            divPlace.style.height = "50px";
+            
+            listItem.style.display = "flex";
+            listItem.append(divDay,divTime,divContent,divPlace);
+            listTable.append(listItem);
+        })
+        bigDiv.append(listTable);
+        // console.log(listTable);
+        // lastGoneList = document.querySelector("ul");
+        // console.log(lastGoneList);
+        // console.log(lastGoneList.lastElementChild);
+        // lastGoneList.removeChild(lastGoneList.lastElementChild);
+        // console.log(lastGoneList);
+        // console.log(window.localStorage.getItem("toDoList"));
+    }
+
+    function deleteLine(){
+        lastGoneList = document.querySelector("ul");
+        lastGoneList.removeChild(lastGoneList.lastElementChild);
+        // window.localStorage.setItem("toDoList", value + "|" + `{"day" : "${inputs[0].value}", "time" : "${inputs[1].value}", "content" : "${inputs[2].value}", "place" : "${inputs[3].value}"}`);
+        let myValue = window.localStorage.getItem("toDoList").split("|");
+        let finalValue = myValue.splice(0,myValue.length - 1);
+        // console.log(finalValue);
+        // console.log(finalValue.join("|"));
+        let realValue = finalValue.join("|");
+        window.localStorage.setItem("toDoList", realValue);
+        // console.log(finalValue);
+        // console.log(myValue);
+        // console.log(myValue[myValue.length - 1]);
+        // `{"day" : "${inputs[0].value}", "time" : "${inputs[1].value}", "content" : "${inputs[2].value}", "place" : "${inputs[3].value}"}`);
+    }
+    deleteBtn.addEventListener("click",deleteLine);
+
+    if(window.localStorage.length != 0){
+        render();
+    }
+</script>
+</html>

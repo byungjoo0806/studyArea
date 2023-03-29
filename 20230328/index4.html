@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        body{
+            width: 100%;
+            height: 500px;
+        }
+        .player-select,.com-select{
+            width: 180px;
+            height: 154px;
+            background-image: url(./img/Rock-Paper-Scissors.png);
+            background-repeat: no-repeat;
+            background-size: 440px;
+            background-position-x: -230px;
+            background-position-y: 0px;
+            border: 1px solid;
+        }
+
+        .rock{
+            background-position-x: -240px;
+            background-position-y: 0px;
+        }
+        .paper{
+            background-position-x: -90px;
+            background-position-y: -115px;
+        }
+        .scissors{
+            background-position-x: -42px;
+            background-position-y: 34px;
+        }
+        .game-wrap{
+            margin: auto;
+            display: flex;
+        }
+        .rps{
+            height: 500px;
+            margin: auto;
+        }
+
+        /* .MJP{
+            width: 500px;
+            height: 400px;
+            display: none;
+        } */
+
+        .player-btn-box{
+            width: 200px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .level-btn-box{
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .betting-btn-box{
+            width: 200px;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .names{
+            width: 364px;
+            height: 30px;
+            display: flex;
+        }
+        .player-name{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+        }
+        .com-name{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .bank{
+            width: 364px;
+            height: 30px;
+            display: flex;
+        }
+        .player-money{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .com-money{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .betting-status{
+            width: 364px;
+            height: 50px;
+            display: flex;
+        }
+        .player-betting{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .com-betting{
+            width: 182px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 필요한것 : 버튼(가위,바위,보) -->
+    <div class="rps">
+        <div class="game-wrap">
+            <div class="player-select"></div> <!-- player가 선택한 이미지 -->
+            <div class="com-select"></div> <!-- com이 선택한 결과 -->
+        </div>
+        <div class="names">
+            <p class="player-name"></p>
+            <p class="com-name"></p>
+        </div>
+        <div class="bank">
+            <p class="player-money"></p>
+            <p class="com-money"></p>
+        </div>
+        <div class="betting-status">
+            <p class="player-betting"></p>
+            <p class="com-betting"></p>
+        </div>
+        <h1 class="result">가위바위보를 진행해주세요</h1>
+        <h3 class="details"></h3>
+        <p class="sub-result"></p>
+        <div class="player-btn-box">
+            <label for="">옵 션 :</label>
+            <button class="player-btn">가위</button>
+            <button class="player-btn">보</button>
+            <button class="player-btn">바위</button>
+        </div>
+        <div class="level-btn-box">
+            <label for="">난이도 :</label>
+            <button class="easy-btn">쉬움</button>
+            <button class="medium-btn">보통</button>
+            <button class="hard-btn">어려움</button>
+        </div>
+        <div class="betting-btn-box">
+            <input type="text">
+            <button class="betting-btn">베팅</button>
+        </div>
+    </div>
+    <!-- 묵찌빠 대결 -->
+    <!-- <div class="MJP">
+        <h1>묵찌빠</h1>
+        <div class="game-wrap">
+            <div class="player-select1"></div>
+            <div class="com-select1"></div>
+        </div>
+        <div class="names">
+            <p class="player-name"></p>
+            <p class="com-name"></p>
+        </div>
+        <div class="bank">
+            <p class="player-money"></p>
+            <p class="com-money"></p>
+        </div>
+        <div class="betting-status">
+            <p class="player-betting"></p>
+            <p class="com-betting"></p>
+        </div>
+        <h1 class="result">결과</h1>
+        <p class="sub-result">내용</p>
+        <div class="player-btn-box">
+            <button class="player-btn">가위</button>
+            <button class="player-btn">보</button>
+            <button class="player-btn">바위</button>
+        </div>
+        <div class="level-btn-box">
+            <button class="level-btn">쉬움</button> 초기 자금 : 100000
+            <button class="level-btn">보통</button> 초기 자금 : 50000
+            <button class="level-btn">어려움</button> 초기 자금 : 10000
+        </div>
+    </div> -->
+
+</body>
+<script>
+    // 클래스의 이름으로 사용하고 결과에서도 사용할 가위 바위 보를 담은 문자열 배열을 만들자
+    let gameArr = ["scissors","paper","rock"];
+    // 버튼들도 가져오고
+    let playerBtns = document.querySelectorAll(".player-btn");
+    // player 화면 선택한 결과를 보여줄 태그
+    let playerSelect = document.querySelector(".player-select");
+    
+    let win = "";
+
+    let count = 0;
+
+    // let comSelectNum = gameArr[Math.floor(Math.random() * gameArr.length)];
+    // let comSelect = document.querySelector(".com-select");
+    
+    // document.querySelector(".com-select").className = "com-select " + comSelect;
+
+    // let MJP = document.querySelector(".MJP");
+
+    function character({_name,_money}){
+        this.name = _name;
+        this.money = _money;
+    }
+    let user = new character({_name : "용사", _money : ""});
+
+    function comCharacter({_name,_level,_money}){
+        this.name = _name;
+        this.level = _level;
+        this.money = _money;
+    }
+    let PC = new comCharacter({_name : "PC", _level : "", _money : 50000});
+
+    let playerName = document.querySelector(".player-name");
+    playerName.innerHTML = user.name;
+
+    let comName = document.querySelector(".com-name");
+    comName.innerHTML = PC.name;
+
+    let playerMoney = document.querySelector(".player-money");
+    // playerMoney.innerHTML = user.money;
+
+    let comMoney = document.querySelector(".com-money");
+    // comMoney.innerHTML = PC.money;
+
+    let easyBtn = document.querySelector(".easy-btn");
+    let mediumBtn = document.querySelector(".medium-btn");
+    let hardBtn = document.querySelector(".hard-btn");
+
+    let pcBettingArr = [2000,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000];
+    // let pcBetting = pcBettingArr[Math.floor(Math.random()*11)];
+    // console.log(pcBetting);
+
+    let playerBettingStatus = document.querySelector(".player-betting");
+    let pcBettingStatus = document.querySelector(".com-betting");
+    let playerBetting = document.querySelector("input");
+    let bettingBtn = document.querySelector(".betting-btn");
+
+    // 컴퓨터는 랜덤으로 선택, 결과를 보여줄 태그
+
+    function init(){
+        gameArr.forEach(function(item,index){
+            let comSelect = gameArr[Math.floor(Math.random() * gameArr.length)];
+            document.querySelector(".com-select").className = "com-select " + comSelect;
+            // scissors, paper, rock 순서대로 item에 담긴다.
+            // index = 0, 1, 2 순서대로
+            // playerBtns[0].playerBtns[1],playerBtns[2]
+            // 첫번째 버튼,     두번째 버튼,     세번째 버튼
+            playerBtns[index].addEventListener("click",function(){
+            // while(true){
+                // player 화면 선택한 가위나 바위나 보 이미지를 보여주는 태그
+                // 클래스 추가하되 "player-select" 클래스를 유지하고, 새로운 클래스를 추가해주자
+                playerSelect.className = "player-select " + item;
+                // 구조분해할당으로 받고
+                let {value,text} = gameStart(item);
+                document.querySelector(".result").innerHTML = value;
+                document.querySelector(".sub-result").innerHTML = text;
+                console.log(value);
+
+                if(user.money <= 0 || PC.money <= 0){
+                    gameEnd();
+                }
+                // if(value !== "무승부"){
+                    //     MJP.style.display = "block";
+                    // }else if(value === "무승부"){
+                        //     MJP.style.display = "none";
+                        // }
+                // easyBtn.onclick = function(){
+                //     user.money = 100000;
+                //     playerMoney.innerHTML = "소지금 : " + user.money;
+                // }
+                // mediumBtn.onclick = function(){
+                //     user.money = 50000;
+                //     playerMoney.innerHTML = "소지금 : " + user.money;
+                // }
+                // hardBtn.onclick = function(){
+                //     user.money = 10000;
+                //     playerMoney.innerHTML = "소지금 : " + user.money;
+                // }   
+                
+                // bettingBtn.onclick = function(){
+                //     playerBettingStatus.innerHTML = "베팅금액 : " + playerBetting.value;
+                //     pcBettingStatus.innerHTML = "베팅금액 : " + pcBetting;
+                //     playerMoney.innerHTML = "소지금 : " + (user.money - parseInt(playerBetting.value));
+                //     comMoney.innerHTML = "소지금 : " + (PC.money - pcBetting);
+                //     if(parseInt(playerBetting.value) < 2000){
+                //         alert("최소 베팅 금액은 2000 입니다");
+                //     }
+                // }
+                            
+                // if(value === "승리"){
+                //     document.querySelector(".result").innerHTML = value + "!! 묵찌빠 시작~";
+                //     document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+                //     document.querySelector(".sub-result").innerHTML = "용사의 선공";
+                //     // playerMoney.innerHTML = "소지금 : " + user.money;
+                //     comMoney.innerHTML = "소지금 : " + PC.money;
+                //     win = "user";
+                // }else if(value === "패배"){
+                //     document.querySelector(".result").innerHTML = value + "ㅠㅠ 묵찌빠 시작~";
+                //     document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+                //     document.querySelector(".sub-result").innerHTML = "PC의 선공";
+                //     // playerMoney.innerHTML = "소지금 : " + user.money;
+                //     comMoney.innerHTML = "소지금 : " + PC.money;
+                //     win = "pc";
+                // }
+                
+                // while(true){
+                //     if(item === comSelect){
+                //         if(win === "user"){
+                //             console.log("묵찌빠 승리");
+                //             user.money = user.money + (3 * parseInt(playerBetting.value));
+                //             PC.money = PC.money - (3 * pcBetting);
+                //         }else if(win == "pc"){
+                //             console.log("묵찌빠 패배");
+                //         }
+                //         break;
+                //     }
+                //     switch (item){
+                //         case "scissors" :
+                //             if(comSelect == "rock"){
+                //                 console.log("공격권 넘어감");
+                //                 win = "pc"
+                //             }else{
+                //                 console.log("공격권 유지");
+                //                 win = "user"
+                //             }
+                //             break;
+                //         case "rock" :
+                //             if(comSelect == "paper"){
+                //                 console.log("공격권 넘어감");
+                //                 win = "pc"
+                //             }else{
+                //                 console.log("공격권 유지");
+                //                 win = "user"
+                //             }
+                //             break;
+                //         case "paper" :
+                //             if(comSelect == "scissors"){
+                //                  console.log("공격권 넘어감");
+                //                  win = "pc"
+                //              }else{
+                //                  console.log("공격권 유지");
+                //                  win = "user"
+                //              }
+                //              break;
+                //     }
+                //     if(user.money == 0 || PC.money == 0){
+                //         break;
+                //     }
+                // }
+                
+            })
+        })
+    }            
+    init();
+
+    easyBtn.onclick = function(){
+        user.money = 100000;
+        playerMoney.innerHTML = "소지금 : " + user.money;
+    }
+    mediumBtn.onclick = function(){
+        user.money = 50000;
+        playerMoney.innerHTML = "소지금 : " + user.money;
+    }
+    hardBtn.onclick = function(){
+        user.money = 10000;
+        playerMoney.innerHTML = "소지금 : " + user.money;
+    }   
+    
+    bettingBtn.onclick = function(){
+        if(parseInt(playerBetting.value) < 2000){
+            alert("최소 베팅 금액은 2000 입니다");
+        }else if(parseInt(playerBetting.value) > 3000){
+            alert("최대 베팅 금액은 3000 입니다.");
+        }else{
+            let pcBetting = pcBettingArr[Math.floor(Math.random()*11)];
+            playerBettingStatus.innerHTML = "베팅금액 : " + playerBetting.value;
+            pcBettingStatus.innerHTML = "베팅금액 : " + pcBetting;
+            playerMoney.innerHTML = "소지금 : " + (user.money - parseInt(playerBetting.value));
+            comMoney.innerHTML = "소지금 : " + (PC.money - pcBetting);
+        }
+    }
+
+    function gameStart(player){
+        // 랜덤값으로 gameArr 배열 안에 있는 가위,바위,보를 가져오자
+        let comSelect = gameArr[Math.floor(Math.random() * gameArr.length)];
+        document.querySelector(".com-select").className = "com-select " + comSelect;
+        // 가위바위보 결과
+        // 무승부 거르고 시작
+        if(player == comSelect){
+            if(count == 0){
+                return {value : "무승부", text : "다시하셈~"};
+            }else{
+                if(win = "user"){
+                    user.money = user.money + (3 * parseInt(playerBetting.value));
+                    PC.money = PC.money - (3 * pcBetting);
+                    count = 0;
+                    playerMoney.innerHTML = "소지금 : " + user.money;
+                    comMoney.innerHTML = "소지금 : " + PC.money;
+                }else{
+                    user.money = user.money - (3 * parseInt(playerBetting.value));
+                    PC.money = PC.money + (3 * pcBetting);
+                    count = 0;
+                    playerMoney.innerHTML = "소지금 : " + user.money;
+                    comMoney.innerHTML = "소지금 : " + PC.money;
+                }
+            }
+        }else if((player == "rock" && comSelect == "scissors") || (player == "paper" && comSelect == "rock") || 
+                 (player == "scissors" && comSelect == "paper")){
+            // 여기서 이기는 조건을 만들어 보자
+            count++;
+            win = "user";
+            return {value : "승리", text : "축하축하~"};
+        }else{
+            // 패배 조건
+            count++;
+            win = "pc";
+            return {value : "패배", text : "실력 좀 더 키워오자~"};
+        }
+        // if(value === "승리"){
+        //     document.querySelector(".result").innerHTML = value + "!! 묵찌빠 시작~";
+        //     document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+        //     document.querySelector(".sub-result").innerHTML = "용사의 선공";
+        //     // playerMoney.innerHTML = "소지금 : " + user.money;
+        //     comMoney.innerHTML = "소지금 : " + PC.money;
+        //     win = "user";
+        // }else if(value === "패배"){
+        //     document.querySelector(".result").innerHTML = value + "ㅠㅠ 묵찌빠 시작~";
+        //     document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+        //     document.querySelector(".sub-result").innerHTML = "PC의 선공";
+        //     // playerMoney.innerHTML = "소지금 : " + user.money;
+        //     comMoney.innerHTML = "소지금 : " + PC.money;
+        //     win = "pc";
+        // }
+    }
+
+    function gameEnd(){
+        if(player.money <= 0){
+            document.querySelector(".result").innerHTML = "패배";
+            document.querySelector(".sub-result").innerHTML = "돈 다 떨어졌어. 이제 집에 가";
+        }else{
+            document.querySelector(".result").innerHTML = "승리";
+            document.querySelector(".sub-result").innerHTML = "오 좀 하네? 축하";
+        }
+        location.reload();
+    }
+
+    // levelBtn.onclick = function(){
+    //     if(levelBtn.innerHTML === "쉬움"){
+    //         user.money = 100000;
+    //     }else if(levelBtn.innerHTML === "보통"){
+    //         user.money = 50000;
+    //     }else{
+    //         user.money = 10000;
+    //     }
+    // }
+    // 함수 실행하면 객체로 반환값을 준다.
+
+
+    // 묵찌빠
+    // 가위바위보를 비기면 다시
+    // 가위바위보 이기거나 지면 묵찌빠 진행
+    
+
+    // function mjpStart(){
+        
+    // }
+
+    // if(gameStart(item).value !== "무승부"){
+    //                 MJP.style.display = "block";
+    //             }else{
+    //                 MJP.style.display = "none";
+    //             }
+
+    // function mjpStart(){
+    //     if(value === "승리"){
+    //         document.querySelector(".result").innerHTML = value + "!! 묵찌빠 시작~";
+    //         document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+    //         document.querySelector(".sub-result").innerHTML = "용사의 선공";
+    //         // playerMoney.innerHTML = "소지금 : " + user.money;
+    //         comMoney.innerHTML = "소지금 : " + PC.money;
+    //         win = "user";
+    //     }else if(value === "패배"){
+    //         document.querySelector(".result").innerHTML = value + "ㅠㅠ 묵찌빠 시작~";
+    //         document.querySelector(".details").innerHTML = "난이도 선택하고 베팅금액 입력해";
+    //         document.querySelector(".sub-result").innerHTML = "PC의 선공";
+    //         // playerMoney.innerHTML = "소지금 : " + user.money;
+    //         comMoney.innerHTML = "소지금 : " + PC.money;
+    //         win = "pc";
+    //     }
+    // }
+
+    // while(true){
+    //     if(item === comSelect){
+    //         if(win === "user"){
+    //             console.log("묵찌빠 승리");
+    //             user.money = user.money + (3 * parseInt(playerBetting.value));
+    //             PC.money = PC.money - (3 * pcBetting);
+    //         }else if(win == "pc"){
+    //             console.log("묵찌빠 패배");
+    //         }
+    //         break;
+    //     }
+    //     switch (item){
+    //         case "scissors" :
+    //             if(comSelect == "rock"){
+    //                 console.log("공격권 넘어감");
+    //                 win = "pc"
+    //             }else{
+    //                 console.log("공격권 유지");
+    //                 win = "user"
+    //             }
+    //             break;
+    //         case "rock" :
+    //             if(comSelect == "paper"){
+    //                 console.log("공격권 넘어감");
+    //                 win = "pc"
+    //             }else{
+    //                 console.log("공격권 유지");
+    //                 win = "user"
+    //             }
+    //             break;
+    //         case "paper" :
+    //             if(comSelect == "scissors"){
+    //                  console.log("공격권 넘어감");
+    //                  win = "pc"
+    //              }else{
+    //                  console.log("공격권 유지");
+    //                  win = "user"
+    //              }
+    //              break;
+    //     }
+    //     if(user.money == 0 || PC.money == 0){
+    //         break;
+    //     }
+    // }
+</script>
+</html>

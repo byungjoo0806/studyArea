@@ -54,7 +54,7 @@
         let inputs = document.querySelectorAll("input");
         let value = window.localStorage.getItem("게시판");
         // window.localStorage.clear();
-        if(window.localStorage.length == 0){
+        if(window.localStorage.length == 0 || window.localStorage.getItem("게시판") == ""){
             window.localStorage.setItem("게시판",`{"name" : "${inputs[0].value}", "age" : "${inputs[1].value}", "hobby" : "${inputs[2].value}", "phone" : "${inputs[3].value}"}`);
         }else{
             window.localStorage.setItem("게시판",value + "|" + `{"name" : "${inputs[0].value}","age" : "${inputs[1].value}","hobby" : "${inputs[2].value}", "phone" : "${inputs[3].value}"}`);
@@ -79,32 +79,52 @@
         let _div2 = document.createElement("div");
         let _div3 = document.createElement("div");
         let _div4 = document.createElement("div");
+        let _div5 = document.createElement("div");
         _div1.innerHTML = "이름";
         _div2.innerHTML = "나이";
         _div3.innerHTML = "취미";
         _div4.innerHTML = "전화번호";
+        _div5.innerHTML = "삭제"
         _li.style.display = "flex";
-        _li.append(_div1,_div2,_div3,_div4);
+        _li.append(_div1,_div2,_div3,_div4,_div5);
         _ul.append(_li);
-        _json.forEach(function(i){
+        // 다 지웠으면 배열에 "" 빈문자열 하나가 0번 인덱스에 있어서
+        // 0번 인덱스가 빈 문자열이면 return
+        if(_json[0] == ""){
+            return;
+        }
+        _json.forEach(function(i,index){
             let _li = document.createElement("li");
             let _div1 = document.createElement("div");
             let _div2 = document.createElement("div");
             let _div3 = document.createElement("div");
             let _div4 = document.createElement("div");
+            let _div5 = document.createElement("div");
+            let _button = document.createElement("button");
+            _button.innerHTML = "삭제"
             _div1.innerHTML = JSON.parse(i).name;
             _div2.innerHTML = JSON.parse(i).age;
             _div3.innerHTML = JSON.parse(i).hobby;
             _div4.innerHTML = JSON.parse(i).phone;
+            _div5.append(_button);
+
+            _button.onclick = function(){
+                // splice : 첫번쨰 매개변수 인덱스
+                // 두번째 매개변수가 제거할 갯수
+                _json.splice(index,1);
+                // | 문자로 나눴는데 배열을 문자열로 바꾸면서
+                // 인덱스마다 구분하는 문자를 정해줄 수 있는 메소드
+                window.localStorage.setItem("게시판",_json.join('|'));
+                render();
+            }
             _li.style.display = "flex";
-            _li.append(_div1,_div2,_div3,_div4);
+            _li.append(_div1,_div2,_div3,_div4,_div5);
             _ul.append(_li);
         });
         _div.append(_ul);
     }
-    
-    if(window.localStorage.length != 0){
-        render();
+    if(window.localStorage.length == 0 && window.localStorage.getItem("게시판") == ""){
+            render();
     }
 </script>
 </html>

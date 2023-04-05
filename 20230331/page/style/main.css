@@ -1,0 +1,189 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: absolute;
+    transition: 1s;
+}
+
+.header.isActive{
+    position: fixed;
+    top: 0;
+    background-color: white;
+    animation: headerAni 1s;
+}
+
+.header ul{
+    list-style: none;
+    display: flex;
+}
+
+.header ul li{
+    margin: 15px;
+}
+
+.header::before{
+    content: "b";
+    color: white;
+    font-weight: 900;
+    font-size: 30px;
+    background-color: #00c9b7;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header::after{
+    content: "itKunst";
+    position: absolute;
+    left: 50px;
+    font-size: 28px;
+    font-weight: 900;
+    /* position 속성이 있을때 순서를 설정할 수 있다. */
+    z-index: 1;
+}
+
+/* main content01 ---------------------------------------------- */
+.main{
+    /* vh : view height, 브라우저의 높이 */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: -1;
+}
+
+.main .content01{
+    width: 100%;
+    height: 100%;
+}
+
+.overlay{
+    width: 50%;
+    height: 100%;
+    background-color: #00c9b7;
+    opacity: 0.1;
+}
+
+.content01 .text-wrap{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.content01 .text-wrap p{
+    color: #00c9b7;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.content01 .text-wrap h1{
+    margin: 0;
+    padding: 0;
+    font-size: 55px;
+}
+
+.content01 .text-wrap h2{
+    margin: 15px 0 0 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+.text-wrap h2 span{
+    color: #00c9b7;
+    position: relative;
+}
+
+/* 되도록이면 태그 잡고 접근하지말자 */
+.text-wrap h2 span::before{
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: #00c9b7;
+    bottom: -5px;
+}
+
+.content01 .mouse{
+    position: absolute;
+    background-color: #edf0ff;
+    width: 70px;
+    height: 70px;
+    bottom: 120px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+}
+
+.content01 .mouse .arrow{
+    width: 2px;
+    height: 20px;
+    background-color: #00c9b7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    animation: arrowAni 1s infinite;
+}
+
+.content01 .mouse .arrow::before,
+.content01 .mouse .arrow::after{
+    content: "";
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    transform: rotate(45deg);
+    background-color: #00c9b7;
+}
+
+.content01 .mouse .arrow::after{
+    left: -4px;
+    transform: rotate(-45deg);
+}
+
+@keyframes arrowAni{
+    from{
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        opacity: 1;
+    }
+    to{
+        left: 80%;
+        transform: translate(-50%,50%) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes headerAni{
+    from{
+        top: -80px;
+    }
+    to{
+        top: 0;
+    }
+}
+
+.content02{
+    width: 100%;
+    height: 500px;
+    background-color: antiquewhite;
+}

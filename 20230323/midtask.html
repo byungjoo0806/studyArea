@@ -84,7 +84,9 @@
 
     function render(){
         let jason = window.localStorage.getItem("toDoList");
+        console.log(jason);
         jason = jason.split("|");
+        console.log(jason);
         bigDiv.innerHTML = "";
         
         listTable = document.createElement("ul");

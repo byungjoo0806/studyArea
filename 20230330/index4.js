@@ -62,12 +62,12 @@ console.log(str2.match(temp3));
 // [A-Z] : 대괄호 사이의 알파벳을 찾는다.
 // [x|y] : 문자중에서 "|" 로 분리된 문자 중 하나를 찾는다.
 
-let str3 = "The best program is JavaScript and HTML...1357924680";
+let str3 = "The best program is javascript and html...1357924680";
 
 let temp4 = /JavaScript/ig; // 플래그를 여러개 주고 싶으면, 그냥 같이 작성하면 된다.
 console.log(str3.match(temp4));
 
-let temp5 = /[A-K]/ig; // 대괄호 안에 있는 범위안에 포함된 알파벳을 다 찾아온다.
+let temp5 = /[A-K]/; // 대괄호 안에 있는 범위안에 포함된 알파벳을 다 찾아온다.
 console.log(str3.match(temp5));
 
 let temp6 = /b|p|z/ig; // b or p or z 중에 문자열에 있는 알파벳만 가져온다.

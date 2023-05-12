@@ -63,7 +63,7 @@ router.post("/edit/:id", async (req,res)=>{
     } catch (error) {
         console.log("unable to edit data");
     }
-})
+});
 
 // 게시글 삭제 처리
 router.get("/delete/:id", async (req,res)=>{
@@ -73,6 +73,6 @@ router.get("/delete/:id", async (req,res)=>{
     } catch (error) {
         console.log("unable to delete data");
     }
-})
+});
 
 module.exports = router;

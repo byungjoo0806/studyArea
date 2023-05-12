@@ -35,7 +35,9 @@ const posts = {
     selectPost : async function(id){
         try {
             const [result] = await mysql.query("select * from posts where id = ?",[id]);
+            console.log(result);
             console.log("selected data : ",result[0]);
+            console.log(result[0].title);
             return result[0];
         } catch (error) {
             console.log("unable to find the selected data");
@@ -45,7 +47,7 @@ const posts = {
     // 글을 추가해주는 메소드
     insert : async function(title,content){
         try {
-            const [result] = await mysql.query("insert into posts (title, content) values (?,?)",[title,content]);
+            await mysql.query("insert into posts (title, content) values (?,?)",[title,content]);
             console.log("data added");
         } catch (error) {
             console.log("unable to add data");

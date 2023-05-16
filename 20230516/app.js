@@ -26,7 +26,7 @@ const pw = "admin1234";
 
 // 해시화 : 알고리즘을 통해 데이터를 고정된 크기의 고유한 값으로 바꿔주는것.
 // 해시 객체 생성
-// let hashA = crypto.createHash("sha256");
+let hashA = crypto.createHash("sha256");
 // 사용할 알고리즘은 sha256 암호 알고리즘 사용
 // 데이터를 256비트의 고정 크기 해시 값으로 변환해주는 알고리즘
 // 원본 데이터의 길이에 상관이 없이 항상 256비트(32바이트)의 해시 값을 생성한다.
@@ -49,16 +49,16 @@ const pw = "admin1234";
 // 16진수 1E
 
 // 비밀번호를 해시객체에 넣어주자
-// let hashing = hashA.update(pw); // crypto.createHash("sha256").update - 매개변수로 암호화 시킬 문자열
+let hashing = hashA.update(pw); // crypto.createHash("sha256").update - 매개변수로 암호화 시킬 문자열
 
-// console.log(hashing);
+console.log(hashing);
 
 // 객체를 확인해보면 false 값이 있는데, 아직 인코딩이 완료되지 않은 상태
 // digest 메소드를 사용해서 해시값을 반환 - 매개변수로 반환받을 인코딩 방식 지정
-// let hashString = hashing.digest("hex"); // hex - 16진수 인코딩
+let hashString = hashing.digest("hex"); // hex - 16진수 인코딩
 // 해시값을 16진수의 문자열로 반환
 
-// console.log(hashString);
+console.log(hashString);
 
 // 같은 문자열을 해시화를 하면 일정한 값이 나오는데
 // salt 값을 사용해서 예측이 불가한 데이터를 만들어주자
@@ -73,15 +73,15 @@ const pw = "admin1234";
 // randomBytes 메소드
 // 첫번째 매개변수 - 만들고 싶은 바이트 사이즈
 // 두번째 매개변수 - 콜백함수
-// crypto.randomBytes(32,(err,result)=>{
-//     // 32bit 길이의 랜덤한 byte가 생성
-//     if(err){
-//         console.log(err);
-//     }else{
-//         // toString 메소드 - 결과값을 문자열로 변경; 매개변수 - 16진수
-//         console.log(result.toString("hex"));
-//     }
-// });
+crypto.randomBytes(32,(err,result)=>{
+    // 32bit 길이의 랜덤한 byte가 생성
+    if(err){
+        console.log(err);
+    }else{
+        // toString 메소드 - 결과값을 문자열로 변경; 매개변수 - 16진수
+        console.log(result.toString("hex"));
+    }
+});
 
 // 이렇게 난수를 만들어서 회원가입할때 계정마다 salt 값을 주고 사용하는 방법도 있다. (salt 값을데이터 베이스에 같이 저장)
 // 모든 패스워드가 고유의 salt 값을 가지고 있게 만들 수 있다.
@@ -151,7 +151,7 @@ app.use(express.urlencoded({extended : false}));
 
 const mysql = mysql2.createPool({
     user : "root",
-    password : "DIGI0408as^^",
+    password : "",
     database : "20230516",
     multipleStatements : true
 });
@@ -164,17 +164,38 @@ const usersInit = async ()=>{
         await mysql.query("CREATE TABLE users (user_key INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(50), password VARCHAR(128), salt VARCHAR(128))");
     }
 }
-usersInit();
+// usersInit();
 
 app.get("/",(req,res)=>{
     res.render("join");
+});
+
+app.get("/login",(req,res)=>{
+    res.render("login");
 });
 
 app.post("/join", async (req,res)=>{
     const {username,password} = req.body;
     const salt = await createSalt();
     const hash = await createHash(password,salt);
-    await mysql.query("INSERT INTO users (username,password,salt) VALUES (?,?,?)",[username,password,salt]);
+    await mysql.query("INSERT INTO users (username,password,salt) VALUES (?,?,?)",[username,hash,salt]);
+    res.redirect("/login");
+});
+
+app.post("/login", async (req,res)=>{
+    const {username,password} = req.body;
+    const [result] = await mysql.query("SELECT * FROM users WHERE username = ?",[username]);
+    if(result[0]?.salt){
+        const salt = result[0].salt;
+        const hash = await createHash(password,salt);
+        if(hash == result[0].password){
+            res.send("successfully logged in");
+        }else{
+            res.send("please check your password");
+        };
+    }else{
+        res.send("please check your username");
+    };
 });
 
 app.listen(PORT,()=>{

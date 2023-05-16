@@ -1,6 +1,27 @@
 const {userList,userSelect,userInsert,passwordUpdate,userRefresh,userDelete} = require("../models");
 const jwt = require("jsonwebtoken");
 const dot = require("dotenv").config();
+const bcrypt = require("bcrypt");
+
+// create hash
+const createHash = (password)=>{
+    return new Promise((resolve,reject)=>{
+        bcrypt.hash(password,10,(err,data)=>{
+            if(err) reject(err);
+            resolve(data);
+        });
+    });
+};
+
+// compare input password and hash
+const compare = (password,hash)=>{
+    return new Promise((resolve,reject)=>{
+        bcrypt.compare(password,hash,(err,data)=>{
+            if(err) reject(err);
+            resolve(data);
+        });
+    });
+};
 
 // load the whole user list
 exports.users = async (req,res)=>{
@@ -16,7 +37,8 @@ exports.users = async (req,res)=>{
 exports.Signup = async (req,res)=>{
     const {username,password} = req.body;
     try {
-        await userInsert(username,password);
+        const hash = createHash(password)
+        await userInsert(username,hash);
         res.redirect("/login");
     } catch (error) {
         console.log("unable to register a new user from controller");
@@ -33,9 +55,13 @@ exports.Login = async (req,res)=>{
             return res.send("username not found");
         };
 
-        if(data.password !== password){
+        const comparePW = compare(password,data.password);
+        if(!comparePW){
             return res.send("please check your password");
-        };
+        }
+        // if(data.password !== password){
+        //     return res.send("please check your password");
+        // };
 
         // log in successful at this point
         // access token created and given to user

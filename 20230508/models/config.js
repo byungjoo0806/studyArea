@@ -11,7 +11,7 @@ const mysql2  = require("mysql2/promise");
 
 const mysql = mysql2.createPool({
     user : "root",
-    password : "DIGI0408as^^",
+    password : "",
     // 다중 쿼리문 사용할 예정
     // 다중 쿼리문 성정
     multipleStatements : true,

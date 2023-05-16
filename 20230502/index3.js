@@ -78,7 +78,7 @@ app.use(express.urlencoded({extended : false}));
 // mysql 연결부터 하자
 const _mysql = mysql2.createConnection({
     user : "root",
-    password : "DIGI0408as^^",
+    password : "",
     database : "test6"
 })
 

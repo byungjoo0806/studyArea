@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+</head>
+<body>
+    <label for="">no.</label> <br/>
+    <input type="text" value="<%= data.id %>" disabled> <br/>
+    <label for="">title</label> <br/>
+    <input type="text" value="<%= data.title %>" disabled> <br/>
+    <label for="">username</label> <br/>
+    <input type="text" value="<%= data.username %>" disabled> <br/>
+    <label for="">content</label> <br/>
+    <input type="text" value="<%= data.content %>" disabled> <br/>
+    <p></p> 
+    <p></p>
+    <div>
+        <a href="/edit/<%= data.id %>">edit</a>
+        <a href="/delete/<%= data.id %>">delete</a>
+        <a href="/main">back to list</a>
+    </div> 
+</body>
+</html>

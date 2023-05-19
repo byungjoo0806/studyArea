@@ -31,7 +31,7 @@ const app = express();
 
 const _mysql = mysql2.createConnection({
     user : "root",
-    password : "admin1234",
+    password : "",
     database : "test8",
     // 다중 쿼리문 사용할수 있는 옵션
     // multipleStatements : true,

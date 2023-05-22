@@ -37,7 +37,7 @@ app.use("/signup",signupRouter);
 const loginRouter = require("./routers/login");
 app.use("/login",loginRouter);
 
-// border page
+// main page & my page
 const borderRouter = require("./routers/border");
 app.use("/border",borderRouter);
 

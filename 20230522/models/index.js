@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
     config.dev.password,
     config.dev
 );
+// console.log(sequelize);
 
 const db = {};
 db.sequelize = sequelize;
@@ -19,5 +20,6 @@ User.init(sequelize);
 Post.init(sequelize);
 User.associate(db);
 Post.associate(db);
+// console.log(db);
 
 module.exports = db;

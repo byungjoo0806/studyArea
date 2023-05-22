@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    By : <%= data.name %>
+    <ul>
+        <% data.Posts.forEach((post)=>{ %>
+        <li>
+            <p><%= post.msg %></p> <br/>
+            <form action="/border/view_update/<%= post.id %>" method="post">
+                <label for="">content</label> <br/>
+                <input type="text" name="msg"> <br/>
+                <p></p>
+                <button>update</button>
+            </form>
+            <a href="/border/delete/<%= post.id %>">delete</a>
+        </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

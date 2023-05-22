@@ -5,7 +5,7 @@
 // 프로젝트 시작
 
 // 설치할 모듈
-// express ejs sequelize mysql2
+// express ejs sequelize mysql2 dotenv
 
 const express = require("express");
 const PORT = 5019;

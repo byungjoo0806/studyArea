@@ -121,5 +121,15 @@
         };
         getseats(0);
     };
+
+
+
+if(seat == 1){
+    seatElem.classList.add("enable");
+    // 좌석을 클릭하면 예약하게끔
+    seatElem.addEventListener("click",onClickSeat);
+}else if(seat == 2){
+    seatElem.classList.add("disable");
+};
 </script>
 </html>

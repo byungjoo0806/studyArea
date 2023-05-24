@@ -31,6 +31,7 @@ exports.borderView = (req,res)=>{
         // 화살표 함수는 {} 가 빠지면 바로 값을 반환한다; return 생략 가능
         e.dataValues.Posts = e.dataValues.Posts.map((i)=> i.dataValues);
         const Posts = e.dataValues;
+        console.log(Posts);
         res.render("border",{data : Posts});
     });
 };

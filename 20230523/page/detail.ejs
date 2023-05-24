@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post detail</title>
+</head>
+<body>
+    <h2>detail</h2>
+    <label for="">no.</label>
+    <input type="text" value="<%= post.id %>" disabled> <br/>
+    <label for="">title</label>
+    <input type="text" value="<%= post.title %>" disabled> <br/>
+    <label for="">writer</label>
+    <input type="text" value="<%= post.writer %>" disabled> <br/>
+    <label for="">content</label> <br/>
+    <textarea cols="30" rows="10" disabled><%= post.content %></textarea> <br/>
+    <a href="/board/edit/<%= post.id %>">edit</a> <br/>
+    <a href="/board/delete/<%= post.id %>">delete</a> <br/>
+    <a href="/board">back to list</a>
+</body>
+</html>

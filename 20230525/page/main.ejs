@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main page</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        body{
+            height: 100vh;
+
+            position: relative;
+        }
+        #currentUser{
+            width: 100%;
+        }
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%,-50%);
+
+            width: 500px;
+            height: 500px;
+            border: 1px solid;
+
+            box-sizing: border-box;
+        }
+        #send{
+            left: 0;
+            bottom: 0;
+            
+            width: 100%;
+            border: 1px solid;
+            box-sizing: border-box;
+            
+            display: flex;
+
+            position: fixed;
+        }
+        #send #msg{
+            width: 85%;
+
+            border: 0;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        #send #sendBtn{
+            width: 15%;
+
+            background-color: gold;
+            
+            border: none;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        #messages{
+            margin: 0;
+            padding: 0;
+        }
+        #messages li{
+            list-style: none;
+        }
+        #login{
+            width: 300px;
+            height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .join_text{
+            background-color: lightblue;
+        }
+        .leave_text{
+            background-color: lightgray;
+            border: 1px solid rgb(229, 229, 229);
+        }
+        #main{
+            display: none;
+        }
+        #userList{
+            width: 220px;
+            height: 500px;
+            border: 1px solid;
+            
+            position: absolute;
+            top: 0;
+            left: 100%;
+
+            display: none;
+        }
+        #users{
+            width: 100%;
+        }
+        .joinedUser{
+            width: 100%;
+            height: 20px;
+
+            box-sizing: border-box;
+        }
+        .joinedUser:hover{
+            text-decoration: underline;
+            color: gray;
+            cursor: pointer;
+        }
+        .mid-line{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div id="currentUser"></div>
+        <div id="talkConcept">cute animal talk</div>
+        <div id="login">
+            <p>login</p>
+            <input type="text" id="username">
+            <button id="loginBtn">log in</button>
+        </div>
+        <div id="main">
+            <select name="" id="rooms">
+                <option value="catRoom">cat</option>
+                <option value="dogRoom">dog</option>
+            </select>
+            <div id="send">
+                <input type="text" id="msg">
+                <button id="sendBtn">send</button>
+            </div>
+            <div id="sendTo">
+                <input type="text" id="msgTo">
+                <button id="sendBtnTo">whisper</button>
+            </div>
+            <ul id="messages">
+            </ul>
+        </div>
+        <div id="userList">
+            current user : 
+            <div id="users"></div>
+            <p class="mid-line">-----------------------------------------</p>
+            online :
+            <div id="users2"></div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = ()=>{
+        loginBtn.onclick = function(){
+            login.style.display = "none";
+            main.style.display = "block";
+            userList.style.display = "block";
+            const name = username.value;
+            talkConcept.style.display = "none";
+            // rooms.option : 옵션들의 배열
+            console.log(rooms.options);
+            console.log(rooms.selectedIndex);
+            // 선택한 인덱스의 옵션 value 값
+            let room = rooms.options[rooms.selectedIndex].value;
+            console.log(room);
+            // 소켓에 연결시도
+            const socket = io.connect();
+            // console.log(socket.id);
+            socket.emit("joinRoom",room,name);
+
+            rooms.onchange = function(e){
+                // 이벤트가 일어난 태그
+                let el = e.target;
+                console.log(el.selectedIndex);
+                // 해당 유저가 room에서 떠남
+                socket.emit("leaveRoom",room,name);
+                room = rooms.options[rooms.selectedIndex].value;
+                socket.emit("joinRoom",room,name);
+            };
+
+            socket.on("joinRoom",(room,name)=>{
+                console.log("joined yet?");
+                messages.innerHTML += `
+                <li class="join_text">
+                    ${name} joined ${room}
+                </li>
+                `
+            });
+
+            socket.on("leaveRoom",(room,name)=>{
+                messages.innerHTML += `
+                <li class="leave_text">
+                    ${name} left ${room}
+                </li>
+                `
+            });
+
+            socket.on("chat",(name,msg)=>{
+                messages.innerHTML += `
+                <li>
+                    ${name} : ${msg}
+                </li>
+                `;
+            });
+
+            sendBtn.onclick = function(){
+                socket.emit("chat",room,name,msg.value);
+                msg.value = "";
+            };
+
+            sendBtnTo.onclick = function(){
+                socket.emit("chatTo",msgTo.value,name,msg.value);
+                msg.value = "";
+            };
+
+            currentUser.innerHTML = "current user : " + name;
+            socket.on("whosConnected",(userId,ids)=>{
+                // console.log(userId);
+                users2.innerHTML += `
+                <div class="joinedUser">
+                    ${ids}
+                </div>
+                `
+                joinedUser = document.querySelectorAll(".joinedUser");
+                // console.log(joinedUser);
+                joinedUser.forEach((el,index)=>{
+                    // console.log(el);
+                    // console.log(index);
+                    // console.log(el.innerHTML.trim());
+                    el.onclick = function(){
+                        msgTo.value = el.innerHTML.trim();
+                    };
+                });
+                // joinedUser.onclick = function(){
+                //     msgTo.value = ids;
+                // };
+                const userDiv = document.createElement("div");
+                
+            });
+
+        };
+    };
+</script>
+</html>

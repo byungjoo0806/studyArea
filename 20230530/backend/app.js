@@ -34,7 +34,10 @@ const uploadRouter = require("./routers/upload");
 app.use("/img",express.static(path.join(__dirname,"uploads")));
 app.use("/upload",uploadRouter);
 
-
+app.use(cors,({
+    origin : "http://127.0.0.1:8080",
+    credentials : true
+}));
 
 app.listen(PORT,()=>{
     console.log("server open");

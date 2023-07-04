@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Number Picker</title>
+    <!-- React, ReactDOM 라이브러리 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./lottoNum.css">
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 하나의 숫자 뽑기
+    class OneNum extends React.Component {
+        constructor(props){
+            super(props);
+            console.log(props);
+        }
+
+        render(){
+            return(
+                <div className="luckyNumBox">
+                    <div className="buttonBox">
+                        <button onClick={this.props.generate}>generate</button>
+                        <button onClick={this.props.refresh}>refresh</button>
+                    </div>
+                    <div className="luckyText">
+                        your lucky numbers : 
+                    </div>
+                    <div className="resultNumBox">
+                        {this.props.luckyNum.map((i)=>{
+                            return(
+                                <div className="luckyNums">
+                                    {i}
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    // 로또 번호들 보여주기
+    class LottoNum extends React.Component {
+        constructor(props){
+            super(props);
+            this.state = {
+                nums : [1,2,3,4,5,6,7,8,9,10,
+                        11,12,13,14,15,16,17,18,19,20,
+                        21,22,23,24,25,26,27,28,29,30,
+                        31,32,33,34,35,36,37,38,39,40,
+                        41,42,43,44,45],
+                randNum : [],
+            }
+            this.randomNum = this.randomNum.bind(this);
+            this.emptyList = this.emptyList.bind(this);
+        }
+
+        randomNum(){
+            // console.log(Math.floor(Math.random() * this.state.nums.length)+1);
+            // console.log(Math.random());
+            const luckyNums = this.state.randNum;
+            if(luckyNums.length < 6){
+                const randNumber = Math.floor(Math.random() * this.state.nums.length);
+                const selectedNum = this.state.nums[randNumber];
+                luckyNums.push(selectedNum);
+                console.log(this.state.randNum);
+                const updatedArr = this.state.nums.filter(num => num != selectedNum);
+                console.log(updatedArr);
+                this.setState({nums : updatedArr, randNum : luckyNums});
+            }else if(luckyNums.length == 6){
+                const originalPool = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
+                                      31,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
+                this.setState({nums : originalPool, randNum : this.state.randNum});
+            };
+        }
+
+        emptyList(){
+            this.setState({nums : this.state.nums, randNum : []});
+        }
+
+        render(){
+            return(
+                <div className="allNumBox">
+                    { /* <div className="allNums">
+                        {this.state.nums.map((i)=>{
+                            return (<div key={i} className="eachNum">
+                                {i}
+                            </div>
+                            )
+                        })}
+                    </div> */ }
+                    <div className="resultBox">
+                        <OneNum generate={this.randomNum} refresh={this.emptyList} pool={this.state.nums} luckyNum={this.state.randNum}/>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    // 페이지 그려주기
+    class App extends React.Component {
+        render(){
+            return (
+                <div className="mainBox">
+                    <h1 className="pageTitle">pick your lotto numbers here</h1>
+                    <LottoNum />
+                </div>
+            )
+        }
+    }
+
+    // 루트 설정
+    const root = ReactDOM.createRoot(document.querySelector("#root"));
+    root.render(<App />);
+</script>
+</html>

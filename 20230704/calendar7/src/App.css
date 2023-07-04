@@ -1,0 +1,159 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.calendarHeader{
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  margin: 10px;
+  margin-bottom: 0;
+}
+
+.emptyDiv{
+  width: 30px; height: 30px;
+}
+
+.hamburgerBtn{
+  width: 30px; height: 30px;
+  padding: 0;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}
+
+.hamburgerBtn img{
+  width: 30px; height: 30px;
+  margin: 0;
+}
+
+.daysBox{
+  width: 100%; height: 30px;
+  display: flex; justify-content: center;
+  box-sizing: border-box;
+}
+.eachDayBox{
+  width: 14%;
+  display: flex; justify-content: center; align-items: center;
+}
+.textRed{
+  color: red;
+  border-bottom: 1px solid black;
+}
+.textBlack{
+  color: black;
+  border-bottom: 1px solid black;
+}
+.textBlue{
+  color: blue;
+  border-bottom: 1px solid black;
+}
+.vertLine{
+  height: 28px;
+  border: 0.5px dashed gray;
+}
+
+.calBody{
+  height: auto;
+  border-top: 0;
+  margin: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.oneDayBox{
+  width: 181.02px; height: 120px;
+  
+  position: relative;
+}
+.oneDayBox:hover{
+  background-color: lightgray;
+}
+.dayNum{
+  width: 10px; height: 10px;
+  display: flex; justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  margin-right: 5px;
+  bottom: 30px;
+  right: 10px;
+}
+.numRed{
+  color: red;
+}
+.numBlack{
+  color: black;
+}
+.numBlue{
+  color: blue;
+}
+.bottomLine{
+  width: 160px; height: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.weekdayBlack{
+  border: 1px solid black;
+}
+.sundayRed{
+  border: 1px solid red;
+}
+.saturdayBlue{
+  border: 1px solid blue;
+}
+
+.calFooter{
+  height: 30px;
+  margin: 10px;
+  margin-top: 0;
+  position: relative;
+}
+.footerTitle{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  margin: 0;
+}
+.footerSignature{
+  position: absolute;
+  top: 50%; right: 10px;
+  transform: translate(0,-50%);
+}

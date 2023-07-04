@@ -1,0 +1,79 @@
+body{
+    width: 100vw; height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBox{
+    width: 600px; height: 600px;
+}
+
+.pageTitle{
+    display: flex; justify-content: center; align-items: center;
+}
+
+.allNumBox{
+    display: flex;
+    justify-content: center; align-items: center;
+    flex-wrap: wrap;
+}
+
+.allNums{
+    width: 450px; height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.resultBox{
+    width: 100%;
+}
+
+.luckyNumBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.buttonBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.luckyText{
+    width: 100%; height: 30px;
+    display: flex; justify-content: center; align-items: center;
+    margin-top: 20px;
+}
+
+.eachNum{
+    width: 30px; height: 30px;
+    display: flex; justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+.luckyNums{
+    width: 30px; height: 30px;
+    display: flex; justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+.resultNumBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

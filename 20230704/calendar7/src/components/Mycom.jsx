@@ -30,7 +30,9 @@ const Cheader = ({showCbody, showCfooter}) => {
         <div className="calendarHeader">
             <div className="emptyDiv"></div>
             <h2>July 2023</h2>
-            <button className="hamburgerBtn" onClick={showHide}><img src="https://cdn.icon-icons.com/icons2/2596/PNG/512/hamburger_button_menu_icon_155296.png" alt="" /></button>
+            <button className="hamburgerBtn" onClick={showHide}>
+                <img src="https://cdn.icon-icons.com/icons2/2596/PNG/512/hamburger_button_menu_icon_155296.png" alt="" />
+            </button>
             {visible && (<div className="daysBox">
                 <Cdays day="Sun"/>
                 <div className="vertLine"></div>

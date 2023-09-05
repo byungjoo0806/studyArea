@@ -3,6 +3,7 @@ import './App.css';
 import LoginBox from './components/layout/loginBox';
 import { weather, logins } from './middleware';
 import { useEffect, useState } from 'react';
+import axios from "axios";
 
 function App() {
   console.log(logins);
@@ -37,6 +38,8 @@ function App() {
   useEffect(()=>{
     console.log(weatherData);
   },[weatherData]);
+
+  // const data = axios.get("http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?key=6E36E06D3110679EE81CC502DFADCF50&format=json")
 
   return (
     <div className="App">

@@ -76,16 +76,22 @@ describe("block check", ()=>{
         // 현재 블록을 생성한다 가정하고
         // 현재 블록이 생성된 시간이 이전 10번째 블록으로부터 얼마나 걸렸는지 확인을 하고
         // 블록의 정해진 생성 주기보다 빠르면 난이도를 올리고 아니면 내린다.
-        let blockArr = [];
-        let block = new Block(GENESIS,["genesis block"]);
-        blockArr.push(block);
+        // let blockArr = [];
+        // let block = new Block(GENESIS,["genesis block"]);
+        // blockArr.push(block);
+        newChain = new Chain();
+        // console.log(newChain);
+        // console.log(newChain.length());
+        let chainArr = newChain.get();
+        // console.log(chainArr);
         for (let i = 0; i < 20; i++) {
-            let newBlock = new Block(blockArr[blockArr.length - 1],[`${i+1}th block`]);
-            blockArr.push(newBlock);
-            // console.log(newBlock);
+            let newBlock = new Block(chainArr[chainArr.length - 1],[`block ${i+1}`]);
             newChain.addToChain(newBlock);
+            // console.log(newBlock);
         };
-        console.log(newChain);
-        // console.log(newChain.getAdjustmentBlock());
+        // console.log(newChain);
+        console.log(newChain.length());
+        console.log(newChain.latestBlock());
+        console.log(newChain.getAdjustmentBlock());
     })
 });

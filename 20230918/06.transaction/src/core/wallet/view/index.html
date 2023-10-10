@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<body>
+    <h1>wallet tutorial</h1>
+    <button id="createWalletBtn">create wallet</button>
+    <ul id="walletList">
+        <li>bitcoin wallet</li>
+        <li>
+            account : <span id="account"></span>
+        </li>
+        <li>
+            private key :  <span id="privateKey"></span>
+        </li>
+        <li>
+            public key : <span id="publicKey"></span>
+        </li>
+        <li>
+            balance : <span id="balance"></span>
+        </li>
+    </ul>
+    <br/>
+    <h1>created wallet list</h1>
+    <button id="showWalletListBtn">refresh wallet list</button>
+    <div>
+        <ul id="walletListData">
+            please refresh the wallet list
+        </ul>
+    </div>
+</body>
+<script>
+    const render = (wallet)=>{
+        account.innerHTML = wallet.account;
+        privateKey.innerHTML = wallet.privateKey;
+        publicKey.innerHTML = wallet.publicKey;
+        balance.innerHTML = wallet.balance;
+    };
+
+    createWalletBtn.onclick = async ()=>{
+        const {data : response} = await axios.post("/newWallet",null);
+        console.log(response);
+        render(response);
+    };
+
+
+
+    // ------------------------------------ unresolved ------------------------------------
+    const getView = async(account)=>{
+        // console.log(account);
+        const {data : response} = await axios.post("/walletSelect",{account});
+        console.log(account);
+        render(response);
+    };
+
+    showWalletListBtn.onclick = async ()=>{
+        const {data : response} = await axios.post("/walletList",null);
+
+        const list = response.map((account)=>{
+            return `<li onclick="getView('${account}')">${account}</li>`;
+        });
+
+        walletListData.innerHTML = list;
+    };
+    // ------------------------------------ unresolved ------------------------------------
+</script>
+</html>

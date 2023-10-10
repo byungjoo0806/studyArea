@@ -5,11 +5,11 @@ import Newtask from './Newtask';
 
 const Board = ({setChecked}) => {
     // initial list state
-    const [list,setList] = useState([{id : 1, content : ""}]);
+    const [list,setList] = useState([]);
 
-    const addNewLine = ()=>{
+    const addNewLine = (input)=>{
         const newId = list.length + 1;
-        const newLine = {id : newId, content : ""};
+        const newLine = {id : newId, content : input};
         setList([...list,newLine]);
     };
 

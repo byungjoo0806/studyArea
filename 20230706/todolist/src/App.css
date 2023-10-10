@@ -67,9 +67,10 @@
 
 
 .newContentInputBox{
-  width: 500px;
+  width: 600px;
   display: flex; justify-content: center; align-items: center;
+  margin-top: 20px;
 }
 .newContentInput{
-  resize: none;
+  width: 100%;
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // RPC 통신을 하는데에 있어서
+    // 편하게 사용할 수 있게 도와주는 web3 라이브러리
+    // 이더리움 제단에서 지원한다.
+    const web3 = new Web3("http://127.0.0.1:8545");
+
+    // web3.eth.getBalance("0x686D095A438853b675AF0572559C53394F200ed0").then((data)=>{
+    //     console.log(data);
+    //     const value = web3.utils.fromWei(data);
+    //     console.log(value);
+    // });
+
+    // web3.eth.sendTransaction({
+    //     from : "0xDd7471A51079F935DFFB0D228180e03260a64E4E",
+    //     to : "0xC8e126C05EA550080151DF1953e0bC5ac2711B76",
+    //     // 10eth -> wei 단위로 변환
+    //     value : web3.utils.toWei("10","ether")
+    // }).then(console.log);
+
+    // CA 를 생성
+    // 솔리디티로 작성한 코드를 스마트 컨트랙트 배포
+    web3.eth.sendTransaction({
+        from : "0xDd7471A51079F935DFFB0D228180e03260a64E4E",
+        gas : "3000000",
+        // bin 파일의 내용 : 전체 코드가 binary 형식으로 작성된 것
+        data : "608060405234801561000f575f80fd5b506101438061001d5f395ff3fe608060405234801561000f575f80fd5b5060043610610034575f3560e01c806320965255146100385780635524107714610056575b5f80fd5b610040610072565b60405161004d919061009b565b60405180910390f35b610070600480360381019061006b91906100e2565b61007a565b005b5f8054905090565b805f8190555050565b5f819050919050565b61009581610083565b82525050565b5f6020820190506100ae5f83018461008c565b92915050565b5f80fd5b6100c181610083565b81146100cb575f80fd5b50565b5f813590506100dc816100b8565b92915050565b5f602082840312156100f7576100f66100b4565b5b5f610104848285016100ce565b9150509291505056fea264697066735822122041a6bc808e6eb3a3eaecd0469ed2a0bc29e3ad7e18e47c29a94c3b0d34d2325164736f6c63430008150033"
+    }).then(console.log);
+
+    // contractAddress : "0x81b2e2a9512a08082712c42177ac332dcfb3f1f8"
+    // CA 매핑되어있는 코드가 활성화되고 컨트랙트 코드가 실행된다
+
+    // call 과 send
+
+    // 트랜잭션을 발생시킬때는 send
+    // 조회를 할때에는 call 로 값을 조회
+</script>
+</html>

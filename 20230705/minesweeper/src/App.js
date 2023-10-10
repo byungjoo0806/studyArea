@@ -25,7 +25,7 @@ function App() {
 
     arr[randomIndex] = 1;
   }
-  console.log(arr);
+  console.log("random mine arrangement : ", arr);
 
   // random mine arrangement
   const [minePosition, setMinePosition] = useState(null);
@@ -37,8 +37,13 @@ function App() {
   };
 
   useEffect(()=>{
-    console.log("current arrangement : ",minePosition);
-  },[minePosition])
+    newGameGenerator();
+  },[]);
+  console.log("new arrangement position : ", minePosition);
+
+  useEffect(()=>{
+    console.log("current random arrangement : ",minePosition);
+  },[minePosition]);
 
   return (
     <div className="App">

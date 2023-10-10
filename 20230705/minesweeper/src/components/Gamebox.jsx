@@ -3,7 +3,7 @@ import Mine from './Mine';
 import Safezone from './Safezone';
 
 const Gamebox = ({newGameGenerator,position}) => {
-    console.log(position);
+    console.log("new mine arrangement : ", position);
     // show and hide mine game box
     const [visible, setVisible] = useState(false);
     // determine game result

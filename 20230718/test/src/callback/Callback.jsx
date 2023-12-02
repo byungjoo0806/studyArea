@@ -2,7 +2,36 @@ import React, { useCallback, useState } from 'react';
 
 // 공식 문서에 useCallback은 메모이제이션 콜백을 반환한다는 내용이 있음
 // 
-const Callback = () => {
+
+const Memo = React.memo(({action})=>{
+    const [value,setValue] = useState(0);
+    console.log("Child component rendered");
+    return (
+        <>
+            {value} <br/>
+            <button onClick={action}>click me</button>
+        </>
+    )
+});
+
+const Callback = ()=>{
+    const [count,setCount] = useState(0);
+
+    const memoizedIncrement = ()=>{
+        setCount(prev => prev + 1);
+    };
+
+    return(
+        <div>
+            <Memo action={memoizedIncrement} />
+            <div>
+                {count}
+            </div>
+        </div>
+    )
+}
+
+const Callback2 = () => {
     const [count,setCount] = useState(0);
     const [count2,setCount2] = useState(0);
 
@@ -36,4 +65,4 @@ const Callback = () => {
     )
 }
 
-export default Callback;
+export {Callback,Callback2};

@@ -5,7 +5,7 @@ import React, {createContext,useContext, useState} from 'react';
 // 리엑트는 데이터의 흐름이 단방향 - 부모에서 자식으로 props로 전달하기 때문에 불편하다.
 // useContext - props로 데이터를 넘겨주지 않아도 컴포넌트들이 데이터를 공유할 수 있도록 context 사용
 
-export const Global = createContext();
+const Global = createContext();
 // createContext - Global 객체 생성; context 객체 생성
 
 const Context01 = ()=>{
@@ -17,8 +17,9 @@ const Context02 = ()=>{
     // Global.Provider에서 value로 전달한 값을 받기 위해
     // useContext() 매개변수로 context 객체를 전달한다.
     return <>
-        my name is {name}
-        <button onClick={()=>{setName("candy")}}>change name</button>
+        my name is {name} <br/>
+        <br/>
+        <button onClick={()=>{setName(name === "andy" ? "candy" : "andy")}}>change name</button>
     </>
 }
 

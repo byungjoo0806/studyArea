@@ -12,6 +12,9 @@ const App2 = ()=>{
 
     const [value,setValue] = useState("");
     const [value2,setValue2] = useState("");
+
+    const [walletInput,setWalletInput] = useState("");
+    const [amountInput,setAmountInput] = useState("");
     
     useEffect(()=>{
         if(web3 !== null){
@@ -108,6 +111,8 @@ const App2 = ()=>{
             from : user.account,
         });
         getAccounts();
+        setWalletInput("");
+        setAmountInput("");
     };
     
     
@@ -129,9 +134,9 @@ const App2 = ()=>{
             ))}
             <div>
                 <label>to : </label> <br/>
-                <input onChange={(e)=>{setValue(e.target.value)}} /> <br/>
+                <input id="wallet" onChange={(e)=>{setValue(e.target.value)}} /> <br/>
                 <label>amount : </label> <br/>
-                <input onChange={(e)=>{setValue2(e.target.value)}} /> <br/>
+                <input id="amount" onChange={(e)=>{setValue2(e.target.value)}} /> <br/>
                 <button onClick={transfer}>send</button>
             </div>
         </>

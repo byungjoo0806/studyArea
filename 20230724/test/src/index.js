@@ -29,4 +29,4 @@ reportWebVitals();
 // ...state
 
 // redux-toolkit
-// npm install @redusjs/toolkit
+// npm install @reduxjs/toolkitx

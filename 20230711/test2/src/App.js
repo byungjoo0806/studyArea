@@ -49,8 +49,8 @@ function App() {
       <button onClick={getWeather}>search</button> <br/>
 
       <div>
-        여기는 {weatherData && weatherData.data?.name}<br/>
-        현재 날씨는 {weatherData && weatherData.data?.weather[0]?.main}
+        여기는 {weatherData && weatherData?.name}<br/>
+        현재 날씨는 {weatherData && weatherData?.weather[0]?.main}
       </div> <br/>
 
       <label>username</label> <br/>

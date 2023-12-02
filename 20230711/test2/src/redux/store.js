@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
+// import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import rootReducer from "./reducer";
+// import { weather, logins } from "../middleware";
 
 // 사용할 미들웨어는 thunk
 import thunk from "redux-thunk";
@@ -13,3 +15,7 @@ import thunk from "redux-thunk";
 
 // 음식점 하나 오픈했음. 근데 어떤 음식점임?
 export const store = createStore(rootReducer,applyMiddleware(thunk));
+// export const store = configureStore({
+//     reducer : rootReducer,
+//     // middleware : (getDefaultMiddleware) => getDefaultMiddleware().concat(weather(),logins())
+// });
